@@ -36,6 +36,7 @@ protected void onCreate(Bundle savedInstanceState) {
     etInput.Currency = Currency.SRILANKA;
     etInput.Delimiter = false;
     etInput.Spacing = false;
+    etInput.Decimals = false;
 
 }
 ```
@@ -47,6 +48,7 @@ The following attributes can be manipulated:
 - Currency by specifying the country
 - Spacing between currency and value
 - Delimeter
+- Decimals
 
 ### Currency
 
@@ -94,3 +96,25 @@ The delimeter attribute allows the addition of a `.` symbol after displaying the
 > Rp.100
 
 **Note:** Delimeter is `false` by default.
+
+### Decimals
+
+Decimals can be turned off for the EditText using:
+
+```
+etInput.Decimals = false;
+```
+
+This outputs the following:
+
+> $100,000
+
+### Getting Clean Output
+
+A `Double` value without Commas, Currency and Decimal places can be retrieved using:
+
+`double cleanOutput = etInput.getCleanDoubleValue();`
+
+An `Integer` value without Commas, Currency and Decimal places can be retrieved using:
+
+`int cleanOutput = etInput.getCleanIntValue();`

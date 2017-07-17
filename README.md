@@ -41,6 +41,12 @@ Specify the currency by setting the country of your choice.
 etInput.Currency = Currency.MALAYSIA;
 ```
 
+Currency can also be disabled by:
+
+```
+etInput.Currency = Currency.NONE;
+```
+
 #### Custom Currency/Symbol
 
 If a custom symbol that is not included in the library is required, any string value can be used since the the `Currency` attribute expects a `String` value.

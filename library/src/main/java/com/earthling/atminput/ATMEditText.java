@@ -71,7 +71,7 @@ public class ATMEditText extends AppCompatEditText {
                                 }
                             }
 
-                            String formatted = NumberFormat.getCurrencyInstance().format((parsed / 100)).replace("$", currencyFormat);
+                            String formatted = NumberFormat.getCurrencyInstance().format((parsed / 100)).replace(NumberFormat.getCurrencyInstance().getCurrency().getSymbol(), currencyFormat);
 
                             current = formatted;
                             editText.setText(formatted);

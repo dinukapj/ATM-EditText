@@ -4,7 +4,7 @@ A Custom EditText implementation that allows formatting of currency-based numeri
 ## Usage
 
 ```
-compile 'com.github.dinukapj:ATM-EditText:1.3'
+compile 'com.github.dinukapj:ATM-EditText:1.4'
 ```
 
 ## Implementation Sample

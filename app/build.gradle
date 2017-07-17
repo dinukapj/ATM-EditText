@@ -1,13 +1,22 @@
 apply plugin: 'com.android.library'
 
+group='com.github.dinukapj'
+repositories {
+    mavenCentral()
+    maven {
+        url "https://jitpack.io"
+    }
+    dependencies{
+    }
+}
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.0"
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.1"
+        versionCode 3
+        versionName "1.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

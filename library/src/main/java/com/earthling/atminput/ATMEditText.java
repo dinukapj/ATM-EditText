@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 
 import java.text.NumberFormat;
+import java.util.Locale;
 
 /**
  * Created by dinuka on 14/07/2017.
@@ -21,6 +22,7 @@ public class ATMEditText extends AppCompatEditText {
     public String Currency = "";
     public Boolean Spacing = false;
     public Boolean Delimiter = false;
+    public Boolean Decimals = true;
 
     public ATMEditText(Context context) {
         super(context);
@@ -54,7 +56,6 @@ public class ATMEditText extends AppCompatEditText {
 
                     if (cleanString.length() != 0) {
                         try {
-                            double parsed = Double.parseDouble(cleanString);
 
                             String currencyFormat = "";
                             if (Spacing) {
@@ -71,7 +72,17 @@ public class ATMEditText extends AppCompatEditText {
                                 }
                             }
 
-                            String formatted = NumberFormat.getCurrencyInstance().format((parsed / 100)).replace(NumberFormat.getCurrencyInstance().getCurrency().getSymbol(), currencyFormat);
+                            double parsed;
+                            int parsedInt;
+                            String formatted;
+
+                            if (Decimals) {
+                                parsed = Double.parseDouble(cleanString);
+                                formatted = NumberFormat.getCurrencyInstance().format((parsed / 100)).replace(NumberFormat.getCurrencyInstance().getCurrency().getSymbol(), currencyFormat);
+                            } else {
+                                parsedInt = Integer.parseInt(cleanString);
+                                formatted = currencyFormat + NumberFormat.getNumberInstance(Locale.US).format(parsedInt);
+                            }
 
                             current = formatted;
                             editText.setText(formatted);
@@ -91,4 +102,16 @@ public class ATMEditText extends AppCompatEditText {
             }
         });
     }
+
+    public double getCleanValue() {
+        double value = 0.0;
+        String cleanString = editText.toString().replaceAll("[$,.]", "").replaceAll(Currency, "").replaceAll("\\s+", "");
+        try {
+            value = Double.parseDouble(cleanString);
+        } catch (NumberFormatException e) {
+
+        }
+        return value;
+    }
+
 }

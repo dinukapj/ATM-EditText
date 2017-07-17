@@ -18,8 +18,9 @@ public class MainActivity extends AppCompatActivity {
         etInput = (ATMEditText) findViewById(R.id.etInput);
 
         etInput.Currency = Currency.MALAYSIA;
-        etInput.Delimiter = true;
-        etInput.Spacing = true;
+        etInput.Delimiter = false;
+        etInput.Spacing = false;
+        etInput.Decimals = false;
 
     }
 }

@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         etInput.Currency = Currency.MALAYSIA;
         etInput.Delimiter = false;
         etInput.Spacing = false;
-        etInput.Decimals = false;
+        etInput.Decimals = true;
 
         btnProcess.setOnClickListener(new View.OnClickListener() {
             @Override

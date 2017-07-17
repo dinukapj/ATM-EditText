@@ -9,6 +9,19 @@ compile 'com.github.dinukapj:ATM-EditText:1.4'
 
 ## Implementation Sample
 
+XML
+
+```
+<com.earthling.atminput.ATMEditText
+        android:id="@+id/etInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Type value"/>
+```
+
+Code
+
 ```
 ATMEditText etInput;
 

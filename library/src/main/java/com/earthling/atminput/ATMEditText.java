@@ -103,10 +103,13 @@ public class ATMEditText extends AppCompatEditText {
         });
     }
 
+    /*
+    *
+    */
     public double getCleanDoubleValue() {
         double value = 0.0;
         if(Decimals){
-            value = Double.parseDouble(editText.getText().toString().replaceAll(Currency, ""));
+            value = Double.parseDouble(editText.getText().toString().replaceAll("[$,.]", "").replaceAll(Currency, ""));
         }
         else{
             String cleanString = editText.getText().toString().replaceAll("[$,.]", "").replaceAll(Currency, "").replaceAll("\\s+", "");
@@ -122,7 +125,7 @@ public class ATMEditText extends AppCompatEditText {
     public int getCleanIntValue() {
         int value = 0;
         if(Decimals){
-            double doubleValue = Double.parseDouble(editText.getText().toString().replaceAll(Currency, ""));
+            double doubleValue = Double.parseDouble(editText.getText().toString().replaceAll("[$,.]", "").replaceAll(Currency, ""));
             value = (int) Math.round(doubleValue);
         }
         else{

@@ -5,6 +5,8 @@ import android.support.v7.widget.AppCompatEditText;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.KeyEvent;
 
 import java.text.NumberFormat;
 
@@ -48,33 +50,36 @@ public class ATMEditText extends AppCompatEditText {
                 if (!s.toString().equals(current)) {
                     editText.removeTextChangedListener(this);
 
-                    String cleanString = s.toString().replaceAll("[$,.]", "").replaceAll(Currency, "");
+                    String cleanString = s.toString().replaceAll("[$,.]", "").replaceAll(Currency, "").replaceAll("\\s+", "");
 
-                    double parsed = Double.parseDouble(cleanString);
+                    if (cleanString.length() != 0) {
+                        try {
+                            double parsed = Double.parseDouble(cleanString);
 
-                    String currencyFormat = "";
-                    if(Spacing){
-                        if(Delimiter){
-                            currencyFormat = Currency + ". ";
-                        }
-                        else {
-                            currencyFormat = Currency + " ";
+                            String currencyFormat = "";
+                            if (Spacing) {
+                                if (Delimiter) {
+                                    currencyFormat = Currency + ". ";
+                                } else {
+                                    currencyFormat = Currency + " ";
+                                }
+                            } else {
+                                if (Delimiter) {
+                                    currencyFormat = Currency + ".";
+                                } else {
+                                    currencyFormat = Currency;
+                                }
+                            }
+
+                            String formatted = NumberFormat.getCurrencyInstance().format((parsed / 100)).replace("$", currencyFormat);
+
+                            current = formatted;
+                            editText.setText(formatted);
+                            editText.setSelection(formatted.length());
+                        } catch (NumberFormatException e) {
+
                         }
                     }
-                    else{
-                        if(Delimiter){
-                            currencyFormat = Currency + ".";
-                        }
-                        else {
-                            currencyFormat = Currency;
-                        }
-                    }
-
-                    String formatted = NumberFormat.getCurrencyInstance().format((parsed / 100)).replace("$", currencyFormat);
-
-                    current = formatted;
-                    editText.setText(formatted);
-                    editText.setSelection(formatted.length());
 
                     editText.addTextChangedListener(this);
                 }
@@ -86,5 +91,4 @@ public class ATMEditText extends AppCompatEditText {
             }
         });
     }
-
 }

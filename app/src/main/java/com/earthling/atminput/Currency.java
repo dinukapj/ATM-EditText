@@ -5,6 +5,7 @@ package com.earthling.atminput;
  */
 
 public class Currency {
+    public static String NONE = "";
     public static String MALAYSIA = "RM";
     public static String INDONESIA = "Rp";
     public static String SRILANKA = "Rs";

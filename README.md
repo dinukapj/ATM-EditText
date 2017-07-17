@@ -6,7 +6,7 @@ A Custom EditText implementation that allows formatting of currency-based numeri
 ## Usage
 
 ```
-compile 'com.github.dinukapj:ATM-EditText:1.6'
+compile 'com.github.dinukapj:ATM-EditText:1.7.0'
 ```
 
 ## Implementation Sample
@@ -73,7 +73,7 @@ etInput.Currency = "TEST";
 Which produces:
 >TEST 450.00
 
-**Note:** Currency is `$` (US Dollar) by default.
+**Note:** Currency is set to your app's Local currency by default.
 
 ### Spacing
 

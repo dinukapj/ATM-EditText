@@ -22,10 +22,11 @@ public class MainActivity extends AppCompatActivity {
         etInput = (ATMEditText) findViewById(R.id.etInput);
         btnProcess = (Button) findViewById(R.id.btnProcess);
 
-        etInput.Currency = Currency.MALAYSIA;
-        etInput.Delimiter = false;
-        etInput.Spacing = false;
-        etInput.Decimals = true;
+        etInput.setCurrency(Currency.MALAYSIA);
+        etInput.setDelimiter(false);
+        etInput.setSpacing(false);
+        etInput.setDecimals(true);
+        etInput.setSeparator(".");
 
         btnProcess.setOnClickListener(new View.OnClickListener() {
             @Override

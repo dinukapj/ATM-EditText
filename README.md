@@ -50,6 +50,7 @@ The following attributes can be manipulated:
 - Spacing between currency and value
 - Delimeter
 - Decimals
+- Thousands Separator Symbol
 
 ### Currency
 
@@ -109,6 +110,12 @@ etInput.Decimals = false;
 This outputs the following:
 
 > $100,000
+
+### Separator
+
+The Thousands Separator can be customized as required with any custom symbol to suit the currency formats of different countries. Example: Indonesia -> 12.000.000 (Using . instead of , as the separator)
+
+**NOTE: Decimals must be set as `false` in order avoid conflicts in getting a clean Double or Integer output**
 
 ### Getting Clean Output
 

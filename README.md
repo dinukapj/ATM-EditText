@@ -33,11 +33,12 @@ protected void onCreate(Bundle savedInstanceState) {
     setContentView(R.layout.activity_main);
 
     etInput = (ATMEditText) findViewById(R.id.etInput);
-    etInput.Currency = Currency.SRILANKA;
-    etInput.Delimiter = false;
-    etInput.Spacing = false;
-    etInput.Decimals = false;
-
+    etInput.setCurrency(Currency.MALAYSIA);
+    etInput.setDelimiter(false);
+    etInput.setSpacing(false);
+    etInput.setDecimals(true);
+    //Make sure that Decimals is set as false if a custom Separator is used
+    etInput.setSeparator(".");
 }
 ```
 
